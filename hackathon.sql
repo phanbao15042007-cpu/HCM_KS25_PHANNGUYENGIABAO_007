@@ -90,7 +90,8 @@ ORDER BY order_date DESC;
 -- 9)
 SELECT product_name, price
 FROM products
-WHERE price;
+ORDER BY price DESC
+LIMIT 3;
 -- 10)
 SELECT product_name, stock
 FROM products 
@@ -110,7 +111,7 @@ AND result is 2 column with status and total_orders;
 -- 14) 
 ONLY SHOW WHO BOUGHT 2 orders up
 -- 15)
-
+COLLECT Infor pro_id, pro_name and price have AVG price smaller than all products in store;
 -- 16) 
 SELECT full_name, phone
 FROM orders, products, customers
