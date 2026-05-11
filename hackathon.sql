@@ -98,21 +98,13 @@ FROM products
 LIMIT 2, 2;
 -- Phần 3 : Truy vấn dữ liệu nâng cao
 -- 11)
-SELECT order_id,full_name, product_name, order_date
-FROM orders, customers, products
-WHERE status LIKE 'Pending';
--- 12) 
+SELECT o.order_id, c.full_name, p.product_name, o.order_date
+FROM orders AS o, customers AS c, products AS p
+JOIN c.full_name ON o.customer_id = c.customer_id
+JOIN p.product_name ON o.product_id = p.product_id
+WHERE o.status = 'Pending';
+-- 12)
 SELECT brand_name, product_name
-FROM brands, products (below brands)
-brand no disapper;
 -- 13)
-SELECT SUM quantity customer already orders
-AND result is 2 column with status and total_orders;
--- 14) 
-ONLY SHOW WHO BOUGHT 2 orders up
--- 15)
-COLLECT Infor pro_id, pro_name and price have AVG price smaller than all products in store;
--- 16) 
-SELECT full_name, phone
-FROM orders, products, customers
-WHO BOUGHT IPHONE 15
+SELECT Status
+COUNT (*)
